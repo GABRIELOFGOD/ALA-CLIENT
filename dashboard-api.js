@@ -12,7 +12,7 @@
  * ─────────────────────────────────────────────────────────────────
  */
 
-const BASE_URL = 'http://72.60.80.28:4500/api';
+const BASE_URL = 'https://literacy.fcalearn.org/api';
 const user = localStorage.getItem("user");
 
 // Replace with the logged-in user's MongoDB _id (from your auth flow)

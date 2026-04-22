@@ -1,4 +1,4 @@
-// const BASEURL = "http://72.60.80.28:4500/api";
+// const BASEURL = "https://literacy.fcalearn.org/api";
 
 AuthManager.redirectIfAuthenticated();
 AuthManager.init();
