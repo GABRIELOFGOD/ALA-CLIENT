@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Programs — AI Literacy Africa</title>
+  <meta name="description" content="Programs: Foundations, Bootcamps, Webinars, Trainer Certification and more." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="assets/css/style.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+   
+  </style>
+</head>
+<body class="bg-background text-foreground font-body">
+
+<!-- ================= NAVIGATION ================= -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="font-heading font-bold text-xl text-primary">AI Literacy Africa</a>
+
+        <div class="hidden md:flex ml-10 space-x-8 items-baseline">
+          <a href="about.html" class="text-sm text-muted-foreground hover:text-primary">About</a>
+          <a href="programs.html" class="text-sm text-muted-foreground hover:text-primary">Programs</a>
+          <a href="resources.html" class="text-sm text-muted-foreground hover:text-primary">Resources</a>
+          <a href="events.html" class="text-sm text-muted-foreground hover:text-primary">Events</a>
+          <a href="get-involved.html" class="text-sm text-muted-foreground hover:text-primary">Get Involved</a>
+          <a href="contact.html" class="text-sm text-muted-foreground hover:text-primary">Contact</a>
+        </div>
+
+        <div id="cta">
+          <div class="hidden md:flex items-center space-x-4">
+            <a href="signin.html" class="border border-(--primary) text-primary px-4 py-2 rounded-lg">Sign In</a>
+            <a href="get-started.html" class="bg-secondary text-primary-opt px-4 py-2 rounded-lg">Get Started Free</a>
+          </div>
+        </div>
+
+        <!-- <a href="/dashboard.html">
+          <div class="border-primary border-2 rounded-full p-2 h-10 w-10 justify-center items-center flex my-auto">
+            <i class="fa-regular fa-user"></i>
+          </div>
+        </a> -->
+
+        <div class="md:hidden">
+          <button id="mobile-toggle" class="text-gray-700 hover:text-primary">
+            <svg id="menu-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="menu-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-t px-4 pb-4 pt-2 space-y-2">
+      <a href="about.html" class="block px-3 py-2 text-gray-700 hover:text-primary">About</a>
+      <a href="programs.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Programs</a>
+      <a href="resources.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Resources</a>
+      <a href="events.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Events</a>
+      <a href="get-involved.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Get Involved</a>
+      <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Contact</a>
+      <div id="cta2" class="space-y-2">
+        <a href="signin.html" class="block w-full border border-[color:var(--primary)] text-[color:var(--primary)] px-4 py-2 text-center rounded-lg">Sign In</a>
+        <a href="get-started.html" class="block w-full bg-secondary text-secondary-foreground px-4 py-2 text-center rounded-lg">Get Started Free</a>
+      </div>
+      <!-- <div id="cta2" class="space-y-2">
+        <a href="dashboard.html" class="block w-full border border-[color:var(--primary)] text-[color:var(--primary)] px-4 py-2 text-center rounded-lg">Profile</a>
+      </div> -->
+    </div>
+  </nav>
+
+  <!-- PROGRAMS HERO -->
+<section class="bg-muted relative overflow-hidden">
+  <div class="absolute inset-0 opacity-40"
+    style="background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20stroke%3D%22%233730a3%22%20stroke-opacity%3D%220.1%22%3E%3Cpath%20d%3D%22M10%2010h40v40H10zM30%205v50M5%2030h50M15%205L45%2055M45%205L15%2055%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');">
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+    <div class="text-center max-w-3xl mx-auto">
+      <h1 class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl mb-6">
+        Explore Our AI Learning Pathways
+      </h1>
+
+      <p class="text-xl text-gray-600 mb-8">
+        From beginner foundations to sector-specific bootcamps and trainer certifications—find the programme that fits your journey.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-md font-semibold">
+          View All Courses
+        </button>
+
+        <button class="border border-gray-300 hover:bg-gray-100 px-6 py-3 rounded-md font-semibold flex items-center gap-2">
+          <!-- Download Icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Get Programme Guide
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="sticky top-16 z-40 bg-white border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+
+    <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+
+      <!-- LEFT CONTROLS -->
+      <div class="flex items-center gap-4">
+
+        <!-- CATEGORY DROPDOWN -->
+        <div class="relative">
+          <button id="categoryBtn"
+            class="border px-4 py-2 rounded-md flex items-center gap-2">
+            Category: <span id="categoryLabel">All</span>
+            <svg width="16" height="16" viewBox="0 0 24 24">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
+
+          <ul id="categoryMenu"
+            class="absolute left-0 mt-2 w-48 bg-white border rounded-md shadow-lg hidden">
+            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer" data-category="All">All</li>
+            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer" data-category="Foundations">Foundations</li>
+            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer" data-category="Bootcamps">Bootcamps</li>
+            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer" data-category="Webinars">Webinars</li>
+            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer" data-category="Trainer">Trainer</li>
+          </ul>
+        </div>
+
+        <!-- MODE TABS -->
+        <div class="flex border rounded-md overflow-hidden">
+          <button class="mode-tab px-4 py-2 bg-gray-100" data-mode="All">All</button>
+          <button class="mode-tab px-4 py-2" data-mode="Self-paced">Self-paced</button>
+          <button class="mode-tab px-4 py-2" data-mode="Live">Live</button>
+        </div>
+      </div>
+
+      <!-- SEARCH -->
+      <div class="relative w-full md:w-64">
+        <svg class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" width="18" height="18" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+          <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <input id="searchInput"
+          type="text"
+          placeholder="Search programs..."
+          class="w-full pl-10 pr-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  <!-- PROGRAM CATALOG -->
+<section class="py-12 bg-background">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <h2 class="font-heading font-bold text-2xl mb-8">
+      Available Programs
+    </h2>
+
+    <div id="programGrid"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Cards injected by JS -->
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURED PROGRAM SPOTLIGHT -->
+<section class="py-12 bg-green" >
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+      <!-- Image -->
+      <div class="rounded-lg overflow-hidden h-full max-h-[400px]">
+        <img
+          src="/placeholder.svg"
+          alt="AI Foundations"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <!-- Content -->
+      <div>
+        <h2 class="font-heading font-bold text-3xl mb-4">
+          AI Foundations: Your First Step into AI
+        </h2>
+
+        <p class="text-gray-600 mb-6">
+          Our flagship course designed to give you a solid foundation in AI concepts, ethics,
+          and applications. Perfect for beginners and those looking to understand the basics.
+        </p>
+
+        <ul id="featuredLearningPoints" class="space-y-3 mb-6">
+          <!-- Injected by JS -->
+        </ul>
+
+        <button
+          class="bg-secondary hover:bg-secondary/90 text-white font-semibold px-6 py-3 rounded-md"
+        >
+          Start Free Module
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTOR-TAILORED BOOTCAMPS -->
+<section class="py-12 bg-background relative">
+  <div class="absolute inset-0 opacity-30"
+    style="background-image:url('data:image/svg+xml,%3Csvg width%3D%2260%22 height%3D%2260%22 viewBox%3D%220 0 60 60%22 xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cg fill%3D%22none%22 fill-rule%3D%22evenodd%22%3E%3Cg stroke%3D%22%233730a3%22 stroke-opacity%3D%220.05%22%3E%3Cpath d%3D%22M0 0h60v60H0z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');">
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="font-heading font-bold text-3xl mb-8">Sector-Tailored Bootcamps</h2>
+
+    <div id="bootcampGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-6"></div>
+  </div>
+</section>
+
+<!-- WEBINARS & WORKSHOPS -->
+<section class="py-12 bg-green" >
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="font-heading font-bold text-3xl mb-8">Webinars & Workshops</h2>
+
+    <div id="webinarList" class="space-y-4"></div>
+  </div>
+</section>
+
+
+<!-- AI AMBASSADOR -->
+<section class="py-12 bg-background">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+      <div>
+        <h2 class="font-heading font-bold text-3xl mb-4">
+          Become an AI Ambassador
+        </h2>
+
+        <p class="text-gray-600 mb-6">
+          Join our network of certified trainers bringing AI literacy to communities across Africa.
+        </p>
+
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start"><span class="mr-2">✓</span> Master AI teaching methodologies</li>
+          <li class="flex items-start"><span class="mr-2">✓</span> Access exclusive teaching materials</li>
+          <li class="flex items-start"><span class="mr-2">✓</span> Join pan-African ambassador network</li>
+        </ul>
+
+        <button class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-md">
+          Apply Now
+        </button>
+      </div>
+
+      <div class="rounded-lg overflow-hidden">
+        <img src="/placeholder.svg" alt="AI Ambassador Network" class="w-full h-full object-cover">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- PROGRAM CTA -->
+<section class="py-12 bg-primary text-white text-center">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h3 class="font-heading font-bold text-3xl mb-4">
+      Can't Decide? Download Our Full Programme Guide
+    </h3>
+
+    <p class="text-white/80 mb-8 max-w-2xl mx-auto">
+      All course outlines, schedules, and enrolment details—in one PDF.
+    </p>
+
+    <button class="bg-secondary hover:bg-secondary/90 px-6 py-3 rounded-md">
+      Download Guide
+    </button>
+  </div>
+</section>
+
+<section class="py-8 bg-background border-t border-gray-200 text-center">
+  <p class="text-sm text-gray-500">
+    All programmes are developed by AI experts and local educators to ensure relevance and impact.
+  </p>
+
+  <a href="#" class="text-sm text-primary mt-2 inline-block">
+    View Full Syllabus
+  </a>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+  <footer class="bg-gray-900 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <!-- Brand -->
+      <div class="lg:col-span-2">
+        <div class="font-heading font-bold text-2xl mb-4">
+          AI Literacy Africa
+        </div>
+
+        <p class="text-gray-300 mb-6 text-lg">
+          Empowering Africa through accessible AI education, one algorithm at a time.
+          Building the future of African innovation through community-driven learning.
+        </p>
+
+        <!-- Social Icons -->
+        <div class="flex space-x-4">
+          <!-- Twitter -->
+          <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+
+          <!-- Facebook -->
+          <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+            <i class="fa fa-facebook"></i>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+            <i class="fa fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="font-heading font-semibold text-lg mb-4">Quick Links</h3>
+        <ul class="space-y-3">
+          <li><a href="#about" class="flex items-center text-gray-300 hover:text-secondary transition-colors">
+            <i class="fa fa-book-open"></i> <span class="ml-2">About Us</span>
+          </a></li>
+          <li><a href="#programs" class="flex items-center text-gray-300 hover:text-secondary transition-colors">
+            <i class="fa fa-list"></i><span class="ml-2">Programs</span>
+          </a></li>
+          <li><a href="#events" class="flex items-center text-gray-300 hover:text-secondary transition-colors">
+            <i class="fa fa-calendar"></i> <span class="ml-2">Events</span>
+          </a></li>
+          <li><a href="#contact" class="flex items-center text-gray-300 hover:text-secondary transition-colors">
+            <i class="fa fa-envelope"></i> <span class="ml-2">Contact</span>
+          </a></li>
+        </ul>
+      </div>
+
+      <!-- Get Involved -->
+      <div>
+        <h3 class="font-heading font-semibold text-lg mb-4">Get Involved</h3>
+        <ul class="space-y-3">
+          <li><a href="#volunteer" class="text-gray-300 hover:text-secondary transition-colors">Volunteer</a></li>
+          <li><a href="#partnerships" class="text-gray-300 hover:text-secondary transition-colors">Partnerships</a></li>
+          <li><a href="#donate" class="text-gray-300 hover:text-secondary transition-colors">Donate</a></li>
+          <li><a href="#ambassador" class="text-gray-300 hover:text-secondary transition-colors">Ambassador Program</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom -->
+    <div class="border-t border-gray-800 mt-12 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400">
+          © <script>document.write(new Date().getFullYear());</script> AI Literacy Africa. All rights reserved.
+        </p>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+          <a href="#privacy" class="text-gray-400 hover:text-secondary transition-colors">Privacy Policy</a>
+          <a href="#terms" class="text-gray-400 hover:text-secondary transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+ 
+
+  <script>
+  let selectedCategory = "All";
+  let selectedMode = "All";
+  let searchQuery = "";
+
+  // CATEGORY DROPDOWN
+  const categoryBtn = document.getElementById("categoryBtn");
+  const categoryMenu = document.getElementById("categoryMenu");
+  const categoryLabel = document.getElementById("categoryLabel");
+
+  categoryBtn.addEventListener("click", () => {
+    categoryMenu.classList.toggle("hidden");
+  });
+
+  categoryMenu.querySelectorAll("li").forEach(item => {
+    item.addEventListener("click", () => {
+      selectedCategory = item.dataset.category;
+      categoryLabel.textContent = selectedCategory;
+      categoryMenu.classList.add("hidden");
+      filterPrograms();
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!categoryBtn.contains(e.target)) {
+      categoryMenu.classList.add("hidden");
+    }
+  });
+
+  // MODE TABS
+  document.querySelectorAll(".mode-tab").forEach(btn => {
+    btn.addEventListener("click", () => {
+      selectedMode = btn.dataset.mode;
+      document.querySelectorAll(".mode-tab").forEach(b => b.classList.remove("bg-gray-100"));
+      btn.classList.add("bg-gray-100");
+      filterPrograms();
+    });
+  });
+
+  // SEARCH
+  document.getElementById("searchInput").addEventListener("input", (e) => {
+    searchQuery = e.target.value.toLowerCase();
+    filterPrograms();
+  });
+
+  function filterPrograms() {
+    console.log({
+      selectedCategory,
+      selectedMode,
+      searchQuery
+    });
+    // Next step: real filtering logic
+  }
+
+  const programs = [
+    {
+      id: "ai-foundations",
+      title: "AI Foundations",
+      description: "Master the core concepts of artificial intelligence and machine learning",
+      category: "Foundations",
+      thumbnail: "/placeholder.svg",
+      duration: "4 weeks",
+      startDate: "June 1, 2025",
+      price: "Free",
+      mode: "Self-paced",
+      learningPoints: ["Introduction to ML", "Data Ethics", "Hands-on AI Lab"]
+    },
+    {
+      id: "ai-agriculture",
+      title: "AI for Agriculture Bootcamp",
+      description: "Apply AI solutions to agricultural challenges across Africa",
+      category: "Bootcamps",
+      subcategory: "Agriculture",
+      thumbnail: "/placeholder.svg",
+      duration: "5 days",
+      startDate: "July 15, 2025",
+      price: 99,
+      mode: "Live",
+      learningPoints: ["Crop Yield Prediction", "Agricultural Automation", "Data Collection"]
+    },
+    {
+      id: "ai-healthcare",
+      title: "AI in Healthcare",
+      description: "Leverage AI to improve healthcare outcomes across Africa",
+      category: "Bootcamps",
+      subcategory: "Healthcare",
+      thumbnail: "/placeholder.svg",
+      duration: "5 days",
+      startDate: "August 10, 2025",
+      price: 99,
+      mode: "Live",
+      learningPoints: ["Medical Diagnostics", "Health Data Ethics", "AI Implementation"]
+    },
+    {
+      id: "ai-webinar-intro",
+      title: "Introduction to AI Ethics",
+      description: "Understand the ethical implications of AI in African contexts",
+      category: "Webinars",
+      thumbnail: "/placeholder.svg",
+      duration: "2 hours",
+      startDate: "May 30, 2025",
+      price: "Free",
+      mode: "Live",
+      learningPoints: ["Ethical AI Development", "Bias in AI", "Cultural Considerations"]
+    },
+    {
+      id: "ai-ambassador",
+      title: "AI Ambassador Certification",
+      description: "Become certified to teach AI literacy in your community",
+      category: "Trainer",
+      thumbnail: "/placeholder.svg",
+      duration: "2 weeks",
+      startDate: "September 5, 2025",
+      price: 199,
+      mode: "Live",
+      learningPoints: ["Teaching Methodologies", "Community Engagement", "Technical Foundations"]
+    },
+    {
+      id: "ai-nlp",
+      title: "Natural Language Processing",
+      description: "Learn to build AI systems that understand and generate human language",
+      category: "Foundations",
+      thumbnail: "/placeholder.svg",
+      duration: "3 weeks",
+      startDate: "July 1, 2025",
+      price: 49,
+      mode: "Self-paced",
+      learningPoints: ["Text Processing", "Language Models", "African Language Support"]
+    }
+  ];
+
+  const programGrid = document.getElementById("programGrid");
+
+  function renderPrograms(list) {
+    programGrid.innerHTML = "";
+
+    if (!list.length) {
+      programGrid.innerHTML = `
+        <div class="col-span-full text-center text-gray-500">
+          No programs found.
+        </div>
+      `;
+      return;
+    }
+
+    list.forEach(program => {
+      const priceLabel = program.price === "Free"
+        ? "Free"
+        : `$${program.price}`;
+
+      const badge = `
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/20 text-primary">
+          ${program.category}${program.subcategory ? `: ${program.subcategory}` : ""}
+        </span>
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-200">
+          ${program.mode}
+        </span>
+      `;
+
+      const learnList = program.learningPoints
+        .map(p => `<li>${p}</li>`)
+        .join("");
+
+      programGrid.innerHTML += `
+        <div class="relative group rounded-lg border bg-white overflow-hidden hover:shadow-lg transition-all">
+
+          <div class="h-48 bg-gray-200 overflow-hidden">
+            <img src="${program.thumbnail}" alt="${program.title}"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <div class="flex flex-wrap gap-2">
+                ${badge}
+              </div>
+              <span class="font-bold text-lg">
+                ${priceLabel}
+              </span>
+            </div>
+
+            <h3 class="font-heading font-bold text-xl mb-1">
+              ${program.title}
+            </h3>
+
+            <p class="text-gray-600 mb-4">
+              ${program.description}
+            </p>
+
+            <div class="flex flex-col gap-2 text-sm text-gray-500">
+              <div class="flex items-center gap-2">
+                ⏱ ${program.duration}
+              </div>
+              <div class="flex items-center gap-2">
+                📅 Starts ${program.startDate}
+              </div>
+            </div>
+          </div>
+
+          <!-- Hover Overlay -->
+          <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-6">
+            <div class="text-white">
+              <h4 class="font-bold text-xl mb-4">What you'll learn</h4>
+              <ul class="list-disc pl-5 space-y-2">
+                ${learnList}
+              </ul>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0">
+            <button class="w-full bg-primary hover:bg-primary/90 text-white py-2 rounded-md font-semibold">
+              Learn More
+            </button>
+          </div>
+
+        </div>
+      `;
+    });
+  }
+
+  function filterPrograms() {
+    const filtered = programs.filter(program => {
+      const matchesCategory =
+        selectedCategory === "All" || program.category === selectedCategory;
+
+      const matchesMode =
+        selectedMode === "All" || program.mode === selectedMode;
+
+      const matchesSearch =
+        program.title.toLowerCase().includes(searchQuery) ||
+        program.description.toLowerCase().includes(searchQuery);
+
+      return matchesCategory && matchesMode && matchesSearch;
+    });
+
+    renderPrograms(filtered);
+  }
+
+  // Initial render
+  renderPrograms(programs);
+
+const featuredList = document.getElementById("featuredLearningPoints");
+
+  if (featuredList && programs.length) {
+    const featured = programs[0]; // AI Foundations
+
+    featured.learningPoints.forEach((point, index) => {
+      featuredList.innerHTML += `
+        <li class="flex items-start">
+          <span
+            class="mr-2 mt-1 h-5 w-5 rounded-full bg-primary/20
+                   flex items-center justify-center text-primary text-sm"
+          >
+            ${index + 1}
+          </span>
+          <span>${point}</span>
+        </li>
+      `;
+    });
+  }
+
+  const bootcampGrid = document.getElementById("bootcampGrid");
+
+  programs
+    .filter(p => p.category === "Bootcamps")
+    .forEach(bootcamp => {
+      const icon =
+        bootcamp.subcategory === "Agriculture" ? "🌱" :
+        bootcamp.subcategory === "Healthcare" ? "⚕️" : "🔬";
+
+      bootcampGrid.innerHTML += `
+        <div class="p-6 border rounded-lg bg-white shadow-sm hover:shadow-md transition-all">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center text-xl">
+              ${icon}
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-xl">${bootcamp.title}</h3>
+              <p class="text-sm text-gray-500">${bootcamp.duration} • ${bootcamp.mode}</p>
+            </div>
+          </div>
+
+          <p class="mt-4 mb-4 text-gray-600">${bootcamp.description}</p>
+
+          <button class="w-full bg-primary hover:bg-primary/90 text-white py-2 rounded-md">
+            Register Now
+          </button>
+        </div>
+      `;
+    });
+
+
+  const webinarList = document.getElementById("webinarList");
+
+  programs
+    .filter(p => p.category === "Webinars")
+    .forEach((webinar, index) => {
+      webinarList.innerHTML += `
+        <div class="border border-gray-200 rounded-lg bg-white p-6">
+          <div class="flex flex-col md:flex-row md:items-center justify-between">
+            <div>
+              <h3 class="font-heading font-semibold text-xl">
+                ${webinar.title} – ${webinar.startDate}
+              </h3>
+              <p class="text-gray-600 mt-2">${webinar.description}</p>
+
+              <div class="mt-2 flex items-center">
+                <div class="w-8 h-8 rounded-full bg-gray-200 mr-2"></div>
+                <span class="text-sm">Dr. Ade Johnson, AI Researcher</span>
+              </div>
+            </div>
+
+            <div class="mt-4 md:mt-0">
+              <button class="${index === 0
+                ? 'bg-primary text-white'
+                : 'border border-gray-300'} px-4 py-2 rounded-md">
+                ${index === 0 ? "Register" : "Watch Recording"}
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+
+
+
+</script>
+
+  <script src="assets/js/app.js"></script>
+  <script src="static/js/nav.js"></script>
+
+  <!-- <script>
+    // Program data copied from React Programs component
+    const programs = [
+      {
+        id: "ai-foundations",
+        title: "AI Foundations",
+        description: "Master the core concepts of artificial intelligence and machine learning",
+        category: "Foundations",
+        thumbnail: "assets/img/placeholder.svg",
+        duration: "4 weeks",
+        startDate: "June 1, 2025",
+        price: "Free",
+        mode: "Self-paced",
+        learningPoints: ["Introduction to ML", "Data Ethics", "Hands-on AI Lab"]
+      },
+      {
+        id: "ai-agriculture",
+        title: "AI for Agriculture Bootcamp",
+        description: "Apply AI solutions to agricultural challenges across Africa",
+        category: "Bootcamps",
+        subcategory: "Agriculture",
+        thumbnail: "assets/img/placeholder.svg",
+        duration: "5 days",
+        startDate: "July 15, 2025",
+        price: 99,
+        mode: "Live",
+        learningPoints: ["Crop Yield Prediction", "Agricultural Automation", "Data Collection"]
+      },
+      {
+        id: "ai-healthcare",
+        title: "AI in Healthcare",
+        description: "Leverage AI to improve healthcare outcomes across Africa",
+        category: "Bootcamps",
+        subcategory: "Healthcare",
+        thumbnail: "assets/img/placeholder.svg",
+        duration: "5 days",
+        startDate: "August 10, 2025",
+        price: 99,
+        mode: "Live",
+        learningPoints: ["Medical Diagnostics", "Health Data Ethics", "AI Implementation"]
+      },
+      {
+        id: "ai-webinar-intro",
+        title: "Introduction to AI Ethics",
+        description: "Understand the ethical implications of AI in African contexts",
+        category: "Webinars",
+        thumbnail: "assets/img/placeholder.svg",
+        duration: "2 hours",
+        startDate: "May 30, 2025",
+        price: "Free",
+        mode: "Live",
+        learningPoints: ["Ethical AI Development", "Bias in AI", "Cultural Considerations"]
+      },
+      {
+        id: "ai-ambassador",
+        title: "AI Ambassador Certification",
+        description: "Become certified to teach AI literacy in your community",
+        category: "Trainer",
+        thumbnail: "assets/img/placeholder.svg",
+        duration: "2 weeks",
+        startDate: "September 5, 2025",
+        price: 199,
+        mode: "Live",
+        learningPoints: ["Teaching Methodologies", "Community Engagement", "Technical Foundations"]
+      },
+      {
+        id: "ai-nlp",
+        title: "Natural Language Processing",
+        description: "Learn to build AI systems that understand and generate human language",
+        category: "Foundations",
+        thumbnail: "assets/img/placeholder.svg",
+        duration: "3 weeks",
+        startDate: "July 1, 2025",
+        price: 49,
+        mode: "Self-paced",
+        learningPoints: ["Text Processing", "Language Models", "African Language Support"]
+      }
+    ];
+
+    const grid = document.getElementById('programsGrid');
+    function renderPrograms(list){
+      grid.innerHTML = '';
+      list.forEach(p => {
+        const col = document.createElement('article');
+        col.className = 'border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition';
+        col.innerHTML = `
+          <div class="h-44 bg-gray-200 overflow-hidden">
+            <img src="${p.thumbnail}" alt="${p.title}" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <div class="text-sm inline-flex items-center px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-medium">${p.category}${p.subcategory ? ': '+p.subcategory : ''}</div>
+              <div class="text-lg font-bold">${p.price === 'Free' ? 'Free' : '$'+p.price}</div>
+            </div>
+            <h3 class="font-heading font-bold text-xl">${p.title}</h3>
+            <p class="mt-2 text-gray-600">${p.description}</p>
+            <div class="mt-4">
+              <a href="programs.html#${p.id}" class="inline-block bg-secondary text-white px-4 py-2 rounded">Learn More</a>
+            </div>
+          </div>
+        `;
+        grid.appendChild(col);
+      });
+    }
+
+    // initial render
+    renderPrograms(programs);
+
+    // Filtering logic
+    const categorySelect = document.getElementById('categorySelect');
+    const modeSelect = document.getElementById('modeSelect');
+    const searchInput = document.getElementById('searchInput');
+
+    function filterPrograms(){
+      const cat = categorySelect.value;
+      const mode = modeSelect.value;
+      const q = searchInput.value.trim().toLowerCase();
+
+      const filtered = programs.filter(p => {
+        const matchesCategory = (cat === 'All') || (p.category === cat);
+        const matchesMode = (mode === 'All') || (p.mode === mode);
+        const matchesSearch = p.title.toLowerCase().includes(q) || p.description.toLowerCase().includes(q);
+        return matchesCategory && matchesMode && matchesSearch;
+      });
+
+      renderPrograms(filtered);
+    }
+
+    categorySelect.addEventListener('change', filterPrograms);
+    modeSelect.addEventListener('change', filterPrograms);
+    searchInput.addEventListener('input', filterPrograms);
+
+    // mobile menu toggle (programs page)
+    const togg = document.getElementById('mobile-toggle-programs');
+    togg?.addEventListener('click', ()=> {
+      document.getElementById('mobile-menu-p').classList.toggle('hidden');
+      document.getElementById('menu-open-p').classList.toggle('hidden');
+      document.getElementById('menu-close-p').classList.toggle('hidden');
+    });
+
+    document.getElementById('yearP').textContent = new Date().getFullYear();
+  </script> -->
+
+
+
+
+<script src="static/js/programs-api.js"></script>
+</body>
+</html>

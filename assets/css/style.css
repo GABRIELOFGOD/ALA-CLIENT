@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root{
+      --background: hsl(0 0% 100%);
+      --foreground: hsl(240 10% 3.9%);
+      --primary: hsl(240 47% 35%);
+      --primary-foreground: hsl(0 0% 98%);
+      --secondary: hsl(24, 67%, 51%);
+      --secondary-foreground: hsl(240 5.9% 10%);
+      --muted: hsl(240 4.8% 95.9%);
+      --green: 	hsl(186, 35%, 28%);
+      --border: hsl(240 5.9% 90%);
+    }
+    .bg-background{ background-color: var(--background); }
+    .text-foreground{ color: var(--foreground); }
+    .bg-primary{ background-color: var(--primary); }
+    .text-primary{ color: var(--primary); }
+    .bg-secondary{ background-color: var(--secondary); }
+    .text-secondary{ color: var(--secondary); }
+    .text-primary-opt{color: var(--background);}
+    .text-secondary-foreground{ color: var(--secondary-foreground); }
+    .bg-muted{ background-color: var(--muted); }
+    .border-border{ border-color: var(--border); }
+    .bg-green{ background-color: var(--green); }
+
+    .font-heading{ font-family: 'Poppins', sans-serif; }
+    .font-body{ font-family: 'Source Sans Pro', sans-serif; }
+
+    @keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fade-in { animation: fade-in 0.9s ease-out both; }
+    @keyframes bounce { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-6px);} }
+    .animate-bounce { animation: bounce 1.4s infinite; }
+
+    /* tiny helpers */
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 10px 25px rgba(0,0,0,0.06); }
+
+    .active{
+      color:hsl(240 47% 35%);
+      font-weight: bolder;
+    }

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Events | AI Literacy Africa</title>
+
+  <!-- Tailwind CDN (as agreed) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- App JS -->
+  <script defer src="app.js"></script>
+</head>
+
+<body class="bg-white text-gray-900">
+
+  <!-- ================= NAVIGATION ================= -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="font-heading font-bold text-xl text-primary">AI Literacy Africa</a>
+
+        <div class="hidden md:flex ml-10 space-x-8 items-baseline">
+          <a href="about.html" class="text-sm text-muted-foreground hover:text-primary">About</a>
+          <a href="programs.html" class="text-sm text-muted-foreground hover:text-primary">Programs</a>
+          <a href="resources.html" class="text-sm text-muted-foreground hover:text-primary">Resources</a>
+          <a href="events.html" class="text-sm text-muted-foreground hover:text-primary">Events</a>
+          <a href="get-involved.html" class="text-sm text-muted-foreground hover:text-primary">Get Involved</a>
+          <a href="contact.html" class="text-sm text-muted-foreground hover:text-primary">Contact</a>
+        </div>
+
+        <div id="cta">
+          <div class="hidden md:flex items-center space-x-4">
+            <a href="signin.html" class="border border-(--primary) text-primary px-4 py-2 rounded-lg">Sign In</a>
+            <a href="get-started.html" class="bg-secondary text-primary-opt px-4 py-2 rounded-lg">Get Started Free</a>
+          </div>
+        </div>
+
+        <!-- <a href="/dashboard.html">
+          <div class="border-primary border-2 rounded-full p-2 h-10 w-10 justify-center items-center flex my-auto">
+            <i class="fa-regular fa-user"></i>
+          </div>
+        </a> -->
+
+        <div class="md:hidden">
+          <button id="mobile-toggle" class="text-gray-700 hover:text-primary">
+            <svg id="menu-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="menu-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-t px-4 pb-4 pt-2 space-y-2">
+      <a href="about.html" class="block px-3 py-2 text-gray-700 hover:text-primary">About</a>
+      <a href="programs.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Programs</a>
+      <a href="resources.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Resources</a>
+      <a href="events.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Events</a>
+      <a href="get-involved.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Get Involved</a>
+      <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Contact</a>
+      <div id="cta2" class="space-y-2">
+        <a href="signin.html" class="block w-full border border-[color:var(--primary)] text-[color:var(--primary)] px-4 py-2 text-center rounded-lg">Sign In</a>
+        <a href="get-started.html" class="block w-full bg-secondary text-secondary-foreground px-4 py-2 text-center rounded-lg">Get Started Free</a>
+      </div>
+      <!-- <div id="cta2" class="space-y-2">
+        <a href="dashboard.html" class="block w-full border border-[color:var(--primary)] text-[color:var(--primary)] px-4 py-2 text-center rounded-lg">Profile</a>
+      </div> -->
+    </div>
+  </nav>
+
+<!-- ================= HERO ================= -->
+<section class="relative bg-gradient-to-br from-gray-100 via-gray-50 to-white overflow-hidden">
+  <div class="absolute inset-0 opacity-50 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23000000%22 fill-opacity=%220.03%22%3E%3Cpath d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 py-24 text-center">
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-6">
+      Connect, Learn & Grow:
+      <span class="text-indigo-600">Our Events & Webinars</span>
+    </h1>
+    <p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-8">
+      Join live sessions, workshops, and panels—or catch up anytime with on-demand webinars.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#calendar" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-lg font-semibold">
+        View Calendar
+      </a>
+      <button class="border border-gray-300 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100">
+        Suggest an Event
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CALENDAR + EVENTS ================= -->
+<section id="calendar" class="py-20">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+    <!-- Calendar -->
+    <div>
+      <h2 class="text-3xl font-bold mb-6">Events Calendar</h2>
+      <div class="border rounded-lg p-6">
+        <input
+          id="eventDate"
+          type="date"
+          class="w-full border px-4 py-3 rounded-lg"
+        />
+        <p class="text-sm text-gray-500 mt-2">
+          Select a date to filter events
+        </p>
+      </div>
+    </div>
+
+    <!-- Upcoming Events -->
+    <div>
+      <h2 class="text-3xl font-bold mb-6">Upcoming Events</h2>
+      <div id="eventsList" class="space-y-6"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= ON-DEMAND WEBINARS ================= -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-12">
+      On-Demand Webinar Library
+    </h2>
+
+    <div id="webinars" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </div>
+</section>
+
+<!-- ================= FEATURED WORKSHOP ================= -->
+<section class="py-20">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <h2 class="text-3xl font-bold mb-6">Deep Dive: AI Bootcamp for Educators</h2>
+      <ul class="space-y-3 mb-8 text-gray-600">
+        <li>• Interactive classroom-ready workshops</li>
+        <li>• Hands-on AI labs</li>
+        <li>• Official certification</li>
+      </ul>
+      <button class="bg-amber-500 hover:bg-amber-600 text-white px-8 py-4 rounded-lg font-semibold">
+        Reserve Your Seat
+      </button>
+    </div>
+    <img src="/placeholder.svg" class="rounded-lg h-96 w-full object-cover" alt="">
+  </div>
+</section>
+
+<!-- ================= SPEAKERS ================= -->
+<section class="py-20 bg-indigo-600 text-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-12">Speaker Spotlight</h2>
+    <div id="speakers" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+  </div>
+</section>
+
+<!-- ================= NEWSLETTER ================= -->
+<section class="py-20 bg-indigo-600 text-white">
+  <div class="max-w-xl mx-auto px-6 text-center">
+    <h3 class="text-3xl font-bold mb-4">Never Miss an Event</h3>
+    <p class="text-xl mb-8 text-white/90">
+      Subscribe for monthly highlights and reminders.
+    </p>
+
+    <form class="flex flex-col sm:flex-row gap-4">
+      <input type="email" placeholder="Enter your email"
+        class="flex-1 px-4 py-3 rounded-lg text-gray-900" required />
+      <button class="bg-amber-500 hover:bg-amber-600 px-6 py-3 rounded-lg font-semibold">
+        Subscribe
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER NOTE ================= -->
+<section class="py-8 bg-gray-50 text-center text-sm text-gray-600">
+  All live sessions are free. Recordings available to registered members.
+</section>
+
+<!-- ================= FOOTER ================= -->
+  <footer class="bg-gray-900 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <!-- Brand -->
+      <div class="lg:col-span-2">
+        <div class="font-heading font-bold text-2xl mb-4">
+          AI Literacy Africa
+        </div>
+
+        <p class="text-gray-300 mb-6 text-lg">
+          Empowering Africa through accessible AI education, one algorithm at a time.
+          Building the future of African innovation through community-driven learning.
+        </p>
+
+        <!-- Social Icons -->
+        <div class="flex space-x-4">
+          <!-- Twitter -->
+          <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+
+          <!-- Facebook -->
+          <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+            <i class="fa fa-facebook"></i>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+            <i class="fa fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="font-heading font-semibold text-lg mb-4">Quick Links</h3>
+        <ul class="space-y-3">
+          <li><a href="#about" class="flex items-center text-gray-300 hover:text-secondary transition-colors">
+            <i class="fa fa-book-open"></i> <span class="ml-2">About Us</span>
+          </a></li>
+          <li><a href="#programs" class="flex items-center text-gray-300 hover:text-secondary transition-colors">
+            <i class="fa fa-list"></i><span class="ml-2">Programs</span>
+          </a></li>
+          <li><a href="#events" class="flex items-center text-gray-300 hover:text-secondary transition-colors">
+            <i class="fa fa-calendar"></i> <span class="ml-2">Events</span>
+          </a></li>
+          <li><a href="#contact" class="flex items-center text-gray-300 hover:text-secondary transition-colors">
+            <i class="fa fa-envelope"></i> <span class="ml-2">Contact</span>
+          </a></li>
+        </ul>
+      </div>
+
+      <!-- Get Involved -->
+      <div>
+        <h3 class="font-heading font-semibold text-lg mb-4">Get Involved</h3>
+        <ul class="space-y-3">
+          <li><a href="#volunteer" class="text-gray-300 hover:text-secondary transition-colors">Volunteer</a></li>
+          <li><a href="#partnerships" class="text-gray-300 hover:text-secondary transition-colors">Partnerships</a></li>
+          <li><a href="#donate" class="text-gray-300 hover:text-secondary transition-colors">Donate</a></li>
+          <li><a href="#ambassador" class="text-gray-300 hover:text-secondary transition-colors">Ambassador Program</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom -->
+    <div class="border-t border-gray-800 mt-12 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400">
+          © <script>document.write(new Date().getFullYear());</script> AI Literacy Africa. All rights reserved.
+        </p>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+          <a href="#privacy" class="text-gray-400 hover:text-secondary transition-colors">Privacy Policy</a>
+          <a href="#terms" class="text-gray-400 hover:text-secondary transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<script src="static/js/nav.js"></script>
+<script src="static/js/events-api.js"></script>
+</body>
+</html>

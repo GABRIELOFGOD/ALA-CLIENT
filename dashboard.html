@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Dashboard — AI Literacy Africa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/b561b4e93f.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .sidebar-link{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;color:rgba(255,255,255,0.65);font-size:.875rem;font-weight:500;text-decoration:none;transition:all .2s;}
+    .sidebar-link:hover{background:rgba(255,255,255,0.1);color:#fff;}
+    .sidebar-link.active{background:#f07d3a;color:#fff;}
+    .prog-bar{height:6px;border-radius:999px;background:#e2eaf4;}
+    .prog-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,hsl(240,47%,35%),hsl(24,67%,51%));}
+    .status-badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:999px;font-size:.72rem;font-weight:600;}
+    .card{background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .fade-up{animation:fadeUp .45s ease both}
+    .delay-1{animation-delay:.07s}.delay-2{animation-delay:.14s}.delay-3{animation-delay:.21s}
+  </style>
+</head>
+<body style="background:#f0f4f9;font-family:'Source Sans Pro',sans-serif;">
+
+<!-- SIDEBAR -->
+<div class="flex min-h-screen">
+  <aside class="hidden lg:flex flex-col w-60 fixed top-0 left-0 h-screen z-40" style="background:hsl(240,47%,35%);">
+    <div class="px-5 py-6 border-b border-white/10">
+      <div class="font-heading font-bold text-white text-lg leading-tight">AI Literacy<br><span style="color:#f07d3a;">Africa</span></div>
+    </div>
+    <div class="px-4 py-4 border-b border-white/10 flex items-center gap-3">
+      <div id="sb-avatar" class="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0" style="background:linear-gradient(135deg,hsl(240,47%,45%),hsl(24,67%,51%));">--</div>
+      <div class="min-w-0"><div id="sb-name" class="text-sm font-semibold text-white truncate">Loading...</div><div id="sb-email" class="text-xs text-white/50 truncate"></div></div>
+    </div>
+    <nav class="flex-1 py-4 px-3 space-y-1">
+      <a href="dashboard.html" class="sidebar-link active"><i class="fa fa-th-large w-4"></i> Dashboard</a>
+      <a href="programs.html" class="sidebar-link"><i class="fa fa-book w-4"></i> Browse Courses</a>
+    </nav>
+    <div class="px-3 pb-5">
+      <button id="logout-sidebar" class="sidebar-link w-full" style="border:none;cursor:pointer;"><i class="fa fa-sign-out-alt w-4"></i> Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="flex-1 lg:ml-60 flex flex-col">
+    <!-- Top bar -->
+    <header class="sticky top-0 z-30 bg-white/90 backdrop-blur-sm border-b border-gray-100 px-5 py-4 flex items-center gap-3">
+      <div>
+        <h1 class="font-heading font-bold text-gray-900 text-lg">My Dashboard</h1>
+        <p id="greeting" class="text-xs text-gray-400">Welcome back!</p>
+      </div>
+      <div class="ml-auto flex items-center gap-2">
+        <a href="programs.html" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white" style="background:hsl(240,47%,35%);">
+          <i class="fa fa-plus text-xs"></i> Browse Courses
+        </a>
+        <button id="logout-top" class="px-3 py-2 rounded-xl text-sm font-medium text-red-500 border border-red-200 hover:bg-red-50 transition-colors">Logout</button>
+      </div>
+    </header>
+
+    <main class="p-5 space-y-6">
+      <!-- Stat cards -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="card p-5 fade-up">
+          <div class="text-2xl mb-1">📚</div>
+          <div id="stat-enrolled" class="font-heading font-bold text-3xl text-gray-900">--</div>
+          <div class="text-sm text-gray-500 mt-0.5">Enrolled Courses</div>
+        </div>
+        <div class="card p-5 fade-up delay-1">
+          <div class="text-2xl mb-1">✅</div>
+          <div id="stat-completed" class="font-heading font-bold text-3xl text-gray-900">--</div>
+          <div class="text-sm text-gray-500 mt-0.5">Completed</div>
+        </div>
+        <div class="card p-5 fade-up delay-2 col-span-2 md:col-span-1">
+          <div class="text-2xl mb-1">🎓</div>
+          <div id="stat-certs" class="font-heading font-bold text-3xl text-gray-900">--</div>
+          <div class="text-sm text-gray-500 mt-0.5">Certificates</div>
+        </div>
+      </div>
+
+      <!-- My Courses -->
+      <div class="card fade-up delay-1">
+        <div class="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
+          <h2 class="font-heading font-semibold text-gray-900">My Courses</h2>
+          <a href="programs.html" class="text-sm font-medium" style="color:hsl(24,67%,51%);">+ Enroll in new</a>
+        </div>
+        <div id="courses-list" class="p-5 space-y-4">
+          <div class="text-center py-8 text-gray-400">
+            <div class="text-3xl mb-2">📭</div>
+            <p class="text-sm">Loading your courses...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificates -->
+      <div class="card fade-up delay-2">
+        <div class="px-5 py-4 border-b border-gray-100">
+          <h2 class="font-heading font-semibold text-gray-900">Certificates</h2>
+          <p class="text-xs text-gray-400 mt-0.5">Complete a course, then request your certificate</p>
+        </div>
+        <div id="certs-list" class="p-5 space-y-3">
+          <div class="text-center py-6 text-gray-400 text-sm">Loading certificates...</div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="static/js/nav.js"></script>
+<script src="static/js/dashboard.js"></script>
+<script src="dashboard-api.js"></script>
+</body>
+</html>

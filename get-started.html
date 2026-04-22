@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Literacy Africa</title>
+  <meta name="description" content="Bridging the AI knowledge gap across Africa through accessible education, community-driven learning, and practical skills." />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/b561b4e93f.js" crossorigin="anonymous"></script>
+  <!-- <link rel="stylesheet" href="../dist/output.css"> -->
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+     <link rel="stylesheet" href="assets/css/style.css">
+
+    
+</head>
+<body class="bg-background text-foreground font-body">
+
+<!-- ================= NAVIGATION ================= -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="font-heading font-bold text-xl text-primary">AI Literacy Africa</a>
+
+        <div class="hidden md:flex ml-10 space-x-8 items-baseline">
+          <a href="about.html" class="text-sm text-muted-foreground hover:text-primary">About</a>
+          <a href="programs.html" class="text-sm text-muted-foreground hover:text-primary">Programs</a>
+          <a href="resources.html" class="text-sm text-muted-foreground hover:text-primary">Resources</a>
+          <a href="events.html" class="text-sm text-muted-foreground hover:text-primary">Events</a>
+          <a href="get-involved.html" class="text-sm text-muted-foreground hover:text-primary">Get Involved</a>
+          <a href="contact.html" class="text-sm text-muted-foreground hover:text-primary">Contact</a>
+        </div>
+
+        <div id="cta">
+          <div class="hidden md:flex items-center space-x-4">
+            <a href="signin.html" class="border border-(--primary) text-primary px-4 py-2 rounded-lg">Sign In</a>
+            <a href="get-started.html" class="bg-secondary text-primary-opt px-4 py-2 rounded-lg">Get Started Free</a>
+          </div>
+        </div>
+
+        <!-- <a href="/dashboard.html">
+          <div class="border-primary border-2 rounded-full p-2 h-10 w-10 justify-center items-center flex my-auto">
+            <i class="fa-regular fa-user"></i>
+          </div>
+        </a> -->
+
+        <div class="md:hidden">
+          <button id="mobile-toggle" class="text-gray-700 hover:text-primary">
+            <svg id="menu-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="menu-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-t px-4 pb-4 pt-2 space-y-2">
+      <a href="about.html" class="block px-3 py-2 text-gray-700 hover:text-primary">About</a>
+      <a href="programs.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Programs</a>
+      <a href="resources.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Resources</a>
+      <a href="events.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Events</a>
+      <a href="get-involved.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Get Involved</a>
+      <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Contact</a>
+      <div id="cta2" class="space-y-2">
+        <a href="signin.html" class="block w-full border border-[color:var(--primary)] text-[color:var(--primary)] px-4 py-2 text-center rounded-lg">Sign In</a>
+        <a href="get-started.html" class="block w-full bg-secondary text-secondary-foreground px-4 py-2 text-center rounded-lg">Get Started Free</a>
+      </div>
+      <!-- <div id="cta2" class="space-y-2">
+        <a href="dashboard.html" class="block w-full border border-[color:var(--primary)] text-[color:var(--primary)] px-4 py-2 text-center rounded-lg">Profile</a>
+      </div> -->
+    </div>
+  </nav>
+
+  <section class="flex w-full justify-center items-center h-[80vh] px-3">
+    <form id="register" class="border rounded-lg border-primary p-10 shadow-md flex flex-col gap-4 w-full max-w-[400px]">
+      <p class="text-2xl font-extrabold text-start">Welcome Here.</p>
+      <p id="error-text" class="w-full hidden bg-red-100 justify-center border-red-500 border-2 text-red-500 text-sm rounded-md text-center p-2">Error will appear here</p>
+      <div>
+        <label for="name" class="font-semibold">Full Name:</label>
+        <input required type="text" id="name" class="w-full border border-primary rounded-md h-10 px-3" placeholder="John Doe">
+      </div>
+      <div>
+        <label for="email" class="font-semibold">Email:</label>
+        <input required type="email" id="email" class="w-full border border-primary rounded-md h-10 px-3" placeholder="example@email.com">
+      </div>
+      <div>
+        <label for="password" class="font-semibold">Password:</label>
+        <input required type="password" id="password" class="w-full border border-primary rounded-md h-10 px-3" placeholder="* * * * * *">
+      </div>
+      <p>Already have an account? <a href="signin.html" class="text-primary font-bold hover:underline duration-200">Login</a></p>
+
+      <button id="sign-btn" type="submit" class="bg-primary shadow-sm px-12 py-2 mt-5 hover:shadow-lg duration-200 w-fit rounded-md text-white font-semibold self-end">Register</button>
+    </form>
+  </section>
+
+<!-- ================= FOOTER ================= -->
+  <footer class="bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <!-- Brand -->
+        <div class="lg:col-span-2">
+          <div class="font-heading font-bold text-2xl mb-4">
+            AI Literacy Africa
+          </div>
+
+          <p class="text-gray-300 mb-6 text-lg">
+            Empowering Africa through accessible AI education, one algorithm at a time.
+            Building the future of African innovation through community-driven learning.
+          </p>
+
+          <!-- Social Icons -->
+          <div class="flex space-x-4">
+            <!-- Twitter -->
+            <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+
+            <!-- Facebook -->
+            <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+              <i class="fa fa-facebook"></i>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="#" class="text-gray-400 hover:text-secondary transition-colors">
+              <i class="fa fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="font-heading font-semibold text-lg mb-4">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="#about" class="flex items-center text-gray-300 hover:text-secondary transition-colors">
+              <i class="fa fa-book-open"></i> <span class="ml-2">About Us</span>
+            </a></li>
+            <li><a href="#programs" class="flex items-center text-gray-300 hover:text-secondary transition-colors">
+              <i class="fa fa-list"></i><span class="ml-2">Programs</span>
+            </a></li>
+            <li><a href="#events" class="flex items-center text-gray-300 hover:text-secondary transition-colors">
+              <i class="fa fa-calendar"></i> <span class="ml-2">Events</span>
+            </a></li>
+            <li><a href="#contact" class="flex items-center text-gray-300 hover:text-secondary transition-colors">
+              <i class="fa fa-envelope"></i> <span class="ml-2">Contact</span>
+            </a></li>
+          </ul>
+        </div>
+
+        <!-- Get Involved -->
+        <div>
+          <h3 class="font-heading font-semibold text-lg mb-4">Get Involved</h3>
+          <ul class="space-y-3">
+            <li><a href="#volunteer" class="text-gray-300 hover:text-secondary transition-colors">Volunteer</a></li>
+            <li><a href="#partnerships" class="text-gray-300 hover:text-secondary transition-colors">Partnerships</a></li>
+            <li><a href="#donate" class="text-gray-300 hover:text-secondary transition-colors">Donate</a></li>
+            <li><a href="#ambassador" class="text-gray-300 hover:text-secondary transition-colors">Ambassador Program</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom -->
+      <div class="border-t border-gray-800 mt-12 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-400">
+            © <script>document.write(new Date().getFullYear());</script> AI Literacy Africa. All rights reserved.
+          </p>
+          <div class="flex space-x-6 mt-4 md:mt-0">
+            <a href="#privacy" class="text-gray-400 hover:text-secondary transition-colors">Privacy Policy</a>
+            <a href="#terms" class="text-gray-400 hover:text-secondary transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <script src="assets/js/app.js"></script>
+  <script src="static/js/nav.js"></script>
+  <script src="static/js/signup.js"></script>
+
+  
+
+</body>
+</html>
