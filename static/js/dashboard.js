@@ -1,6 +1,6 @@
 // dashboard.js v2
-AuthManager.requireAuth();
 AuthManager.init();
+AuthManager.requireAuth();
 
 const BASE = BASEURL;
 const tok  = () => localStorage.getItem('token');

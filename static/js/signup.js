@@ -1,7 +1,7 @@
 // const BASEURL = "https://literacy.fcalearn.org/api";
 
-AuthManager.redirectIfAuthenticated();
 AuthManager.init();
+AuthManager.redirectIfAuthenticated();
 
 const loginForm = document.querySelector("form#register");
 const errorText = document.querySelector("#error-text");
