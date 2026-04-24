@@ -30,7 +30,7 @@ loginForm.addEventListener("submit", async (e) => {
 
     const response = await request.json();
     if (!request.ok) throw new Error(response.message);
-
+    alert("Registration completed, please login to your account");
     location.assign("/signin.html");
   } catch (error) {
     console.log("Error", error);

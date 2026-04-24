@@ -219,7 +219,7 @@ async function renderModules() {
     const lessonsHtml = hasLessons ? m.lessons.sort((a,b)=>a.order-b.order).map((l, li) => `
       <div class="lesson-item ${locked?'opacity-40 pointer-events-none':''}" data-lid="${l._id}"
            onclick="${locked?'':'playItem(courseData.modules['+i+'], courseData.modules['+i+'].lessons['+li+'])'}">
-        <i class="fa fa-play text-gray-300 text-xs flex-shrink-0"></i>
+        <i class="fa fa-play text-gray-300 text-xs shrink-0"></i>
         <span class="text-xs text-gray-700 truncate flex-1">${l.title}</span>
       </div>`).join('') : '';
 
@@ -227,7 +227,7 @@ async function renderModules() {
       const submitted = !!myModAttempts[q._id];
       return `
         <div class="lesson-item cursor-pointer" onclick="openModuleQuiz(${JSON.stringify(q).replace(/"/g,'&quot;')}, '${m._id}')">
-          <i class="fa fa-pencil-alt text-gray-300 text-xs flex-shrink-0"></i>
+          <i class="fa fa-pencil-alt text-gray-300 text-xs shrink-0"></i>
           <span class="text-xs text-gray-700 truncate flex-1">${q.title}</span>
           ${submitted ? `<i class="fa fa-check-circle text-green-500 text-xs"></i>` : `<span class="text-xs text-gray-400">Open</span>`}
         </div>`;
@@ -246,7 +246,7 @@ async function renderModules() {
                      : done ? `<div class="text-xs text-green-600 font-medium">Completed</div>`
                      : `<div class="text-xs text-gray-400">${hasLessons?m.lessons.length+' lessons ':''}${hasQuizzes?quizzes.length+' quiz':''}${!hasLessons&&!hasQuizzes?'Click to start':''}</div>`}
           </div>
-          ${hasDropdown && !locked ? `<i class="fa fa-chevron-down text-gray-300 text-xs flex-shrink-0 mod-chevron-${m._id}"></i>` : ''}
+          ${hasDropdown && !locked ? `<i class="fa fa-chevron-down text-gray-300 text-xs shrink-0 mod-chevron-${m._id}"></i>` : ''}
           ${!hasDropdown && !locked ? `<i class="fa fa-play-circle text-gray-300 text-sm"></i>` : ''}
         </div>
         ${(hasDropdown && !locked) ? `
@@ -299,15 +299,44 @@ window.openModuleQuiz = async (quiz, moduleId) => {
   if (!panel) return;
 
   $('module-quiz-title').textContent = quiz.title;
+  // $('module-quiz-questions').innerHTML = quiz.questions.map((q, i) => `
+  //   <div class="mb-5">
+  //     <p class="font-semibold text-gray-900 text-sm mb-2">${i+1}. ${q.question}</p>
+  //     <textarea id="mqa-${q._id || i}" rows="3"
+  //       class="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm outline-none focus:border-blue-400 transition-colors resize-none"
+  //       placeholder="Type your answer here..."
+  //       oninput="modQuizAnswers['${q._id || i}'] = { questionId:'${q._id || i}', questionText:${JSON.stringify(q.question)}, answer:this.value };"
+  //     ></textarea>
+  //   </div>`).join('');
+
   $('module-quiz-questions').innerHTML = quiz.questions.map((q, i) => `
     <div class="mb-5">
       <p class="font-semibold text-gray-900 text-sm mb-2">${i+1}. ${q.question}</p>
-      <textarea id="mqa-${q._id || i}" rows="3"
+      <textarea 
+        id="mqa-${q._id || i}" 
+        data-qid="${q._id || i}"
+        rows="3"
         class="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm outline-none focus:border-blue-400 transition-colors resize-none"
         placeholder="Type your answer here..."
-        oninput="modQuizAnswers['${q._id || i}'] = { questionId:'${q._id || i}', questionText:${JSON.stringify(q.question)}, answer:this.value };"
       ></textarea>
-    </div>`).join('');
+    </div>
+  `).join('');
+
+  setTimeout(() => {
+    quiz.questions.forEach((q, i) => {
+      const id = q._id || i;
+      const el = document.getElementById(`mqa-${id}`);
+      if (!el) return;
+
+      el.addEventListener('input', (e) => {
+        modQuizAnswers[id] = {
+          questionId: id,
+          questionText: q.question,
+          answer: e.target.value
+        };
+      });
+    });
+  }, 0);
 
   // Check for existing submission
   try {
@@ -328,8 +357,17 @@ window.openModuleQuiz = async (quiz, moduleId) => {
 document.addEventListener('DOMContentLoaded', () => {
   $('module-quiz-submit-btn')?.addEventListener('click', async () => {
     if (!activeModQuiz) return;
+    // const answers = Object.values(modQuizAnswers).filter(a => a.answer?.trim());
+    // if (!answers.length) { alert('Please answer at least one question.'); return; }
+
+    const totalQuestions = activeModQuiz.questions.length;
+
     const answers = Object.values(modQuizAnswers).filter(a => a.answer?.trim());
-    if (!answers.length) { alert('Please answer at least one question.'); return; }
+
+    if (answers.length < totalQuestions) {
+    alert(`Please answer all ${totalQuestions} questions.`);
+    return;
+    }
 
     $('module-quiz-submit-btn').textContent = 'Submitting...';
     $('module-quiz-submit-btn').disabled    = true;
@@ -338,15 +376,17 @@ document.addEventListener('DOMContentLoaded', () => {
         quizId:   activeModQuiz._id,
         moduleId: activeModQuiz.moduleId,
         courseId,
-        answers:  Object.values(modQuizAnswers)
+        answers
       })});
       $('module-quiz-submit-btn').textContent = '✓ Submitted!';
-      setTimeout(() => {
+      setTimeout(async () => {
         $('module-quiz-panel').classList.add('hidden');
         $('module-quiz-submit-btn').textContent = 'Submit Answers';
         $('module-quiz-submit-btn').disabled    = false;
         activeModQuiz = null;
         renderModules();
+        // console.log("Active module", activeMod);
+        updateMarkBtn(activeMod._id);
       }, 1200);
     } catch(e) {
       alert(e.message);
@@ -362,28 +402,68 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ── Mark module complete ──────────────────────────────────────
+// $('mark-done-btn').addEventListener('click', async () => {
+//   if (!activeMod || !isEnrolled) return;
+//   const modId = activeMod._id;
+//   $('mark-done-btn').textContent = 'Saving...';
+//   $('mark-done-btn').disabled    = true;
+//   try {
+//     const res = await api(`/course/${courseId}/module/${modId}/complete`, { method:'POST' });
+//     enrollment = { ...enrollment, ...res.data };
+
+//     // Check if this was the last module
+//     const mods       = courseData?.modules || [];
+//     const allDone    = mods.every(m => isDone(m._id) || m._id === modId);
+//     const isLastMod  = mods[mods.length - 1]?._id === modId;
+
+//     await renderModules();
+//     updateMarkBtn(modId);
+
+//     // If last module just completed, show course quiz prompt
+//     if (isLastMod && res.data.isCompleted) {
+//       showCourseQuizPrompt();
+//     }
+//   } catch(e) {
+//     $('mark-done-btn').textContent = 'Mark as Complete';
+//     $('mark-done-btn').disabled    = false;
+//     alert(e.message);
+//   }
+// });
 $('mark-done-btn').addEventListener('click', async () => {
   if (!activeMod || !isEnrolled) return;
-  const modId = activeMod._id;
+  const modId         = activeMod._id;
+  const completedMod  = activeMod; // snapshot before it changes
   $('mark-done-btn').textContent = 'Saving...';
   $('mark-done-btn').disabled    = true;
   try {
     const res = await api(`/course/${courseId}/module/${modId}/complete`, { method:'POST' });
     enrollment = { ...enrollment, ...res.data };
 
-    // Check if this was the last module
-    const mods       = courseData?.modules || [];
-    const allDone    = mods.every(m => isDone(m._id) || m._id === modId);
-    const isLastMod  = mods[mods.length - 1]?._id === modId;
+    const mods      = courseData?.modules || [];
+    const isLastMod = mods[mods.length - 1]?._id === modId;
+    const nextMod   = mods[mods.findIndex(m => m._id === modId) + 1];
 
+    // Re-render sidebar (updates lock states and done icons)
     await renderModules();
+
+    // Reset button state BEFORE potentially switching module
+    // so if user stays on same module it shows correct state
     updateMarkBtn(modId);
 
-    // If last module just completed, show course quiz prompt
     if (isLastMod && res.data.isCompleted) {
+      // Last module done — show course quiz
       showCourseQuizPrompt();
+    } else if (nextMod) {
+      // Auto-advance to next module
+      playItem(nextMod);
+      // Scroll next module into view in sidebar
+      setTimeout(() => {
+        document.querySelector(`.module-item[data-id="${nextMod._id}"]`)
+          ?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
     }
   } catch(e) {
+    // Reset button on error so user can retry
     $('mark-done-btn').textContent = 'Mark as Complete';
     $('mark-done-btn').disabled    = false;
     alert(e.message);
@@ -659,6 +739,11 @@ async function load() {
           return id?.toString() === courseId;
         }) || null;
       } catch(_) {}
+    }
+
+    if (!tok()) {
+      $("enroll-btn").classList.remove("hidden")
+      $("enroll-btn").innerText = "Login to Enroll"
     }
 
     if (!isEnrolled && tok()) $('enroll-btn').classList.remove('hidden');

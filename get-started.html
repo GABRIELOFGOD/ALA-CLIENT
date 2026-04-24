@@ -85,7 +85,12 @@
       </div>
       <div>
         <label for="password" class="font-semibold">Password:</label>
-        <input required type="password" id="password" class="w-full border border-primary rounded-md h-10 px-3" placeholder="* * * * * *">
+        <div class="relative">
+          <input required type="password" id="password" class="w-full border border-primary rounded-md h-10 px-3" placeholder="* * * * * *">
+          <button type="button" onclick="togglePwd('password','eye-login')" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+            <i id="eye-login" class="fa fa-eye text-sm"></i>
+          </button>
+        </div>
       </div>
       <p>Already have an account? <a href="signin.html" class="text-primary font-bold hover:underline duration-200">Login</a></p>
 

@@ -265,5 +265,15 @@ AuthManager.subscribe(({ isAuthenticated }) => {
   }
 });
 
+function togglePwd(inputId, iconId) {
+  const input = document.getElementById(inputId);
+  const icon  = document.getElementById(iconId);
+  if (!input) return;
+  const isHidden = input.type === 'password';
+  input.type     = isHidden ? 'text' : 'password';
+  icon.className = isHidden ? 'fa fa-eye-slash text-sm' : 'fa fa-eye text-sm';
+}
+window.togglePwd = togglePwd;
+
 // 🚀 Initialize once
 AuthManager.init();
