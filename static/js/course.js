@@ -385,8 +385,9 @@ document.addEventListener('DOMContentLoaded', () => {
         $('module-quiz-submit-btn').disabled    = false;
         activeModQuiz = null;
         renderModules();
-        // console.log("Active module", activeMod);
         updateMarkBtn(activeMod._id);
+        $('mark-done-btn').innerHTML = `<i class="fa fa-check mr-1.5"></i> Mark as Complete`;
+        $('mark-done-btn').disabled    = false;
       }, 1200);
     } catch(e) {
       alert(e.message);
