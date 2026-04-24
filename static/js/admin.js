@@ -84,6 +84,13 @@ async function loadCourses() {
         } catch(_) {}
       }
 
+      // Fetch course-level quiz
+      let courseQuizData = [];
+      try {
+        const cqr = await apiFetch(`/quiz/admin/course/${c._id}`);
+        if (cqr.data?.length) courseQuizData = cqr.data;
+      } catch(_) {}
+
       const modulesHtml = (c.modules||[]).map(m => {
         const quizzes   = modQuizData[m._id] || [];
         const lessonsHtml = (m.lessons||[]).map(l => `
@@ -142,7 +149,7 @@ async function loadCourses() {
               <div class="font-semibold text-gray-900">${c.title}</div>
               <div class="text-xs text-gray-400">${(c.description||'').slice(0,60)}${(c.description||'').length>60?'...':''}</div>
             </div>
-            <div class="flex items-center gap-1.5 flex-shrink-0">
+            <div class="flex items-center gap-1.5 shrink-0">
               <span class="text-xs text-gray-400">${c.modules?.length||0} modules</span>
               <button class="btn-sm btn-outline" onclick="editCourse(${JSON.stringify(c).replace(/"/g,'&quot;')})"><i class="fa fa-edit"></i></button>
               <button class="btn-sm btn-orange" onclick="openAddModule('${c._id}','${c.title.replace(/'/g,"\'")}')">+ Module</button>
@@ -151,6 +158,22 @@ async function loadCourses() {
             </div>
           </div>
           <div id="expand-${c._id}" class="hidden px-5 pb-4 pt-3 bg-gray-50/50">
+            ${courseQuizData.length ? `
+              <div class="mb-3">
+                <p class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Course Quiz</p>
+                ${courseQuizData.map(q => `
+                  <div class="px-3 py-2 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-between mb-1">
+                    <div class="flex items-center gap-2">
+                      <i class="fa fa-list-ol text-blue-400 text-xs"></i>
+                      <span class="text-sm text-gray-800 font-medium">${q.title}</span>
+                      <span class="text-xs text-gray-400">(${q.questions?.length||0} questions · pass: ${q.passingScore}%)</span>
+                    </div>
+                    <div class="flex gap-1.5">
+                      <button class="btn-sm btn-outline" onclick="openEditQuizModal(${JSON.stringify(q).replace(/"/g,'&quot;')})"><i class="fa fa-edit"></i></button>
+                      <button class="btn-sm btn-red" onclick="deleteQuiz('${q._id}')"><i class="fa fa-trash"></i></button>
+                    </div>
+                  </div>`).join('')}
+              </div>` : ''}
             ${modulesHtml || '<p class="text-sm text-gray-400 py-2">No modules yet.</p>'}
           </div>
         </div>`;

@@ -22,6 +22,8 @@ let quizSubmitted = false;
 // module text quiz state
 let activeModQuiz   = null;    // quiz object currently shown in module dropdown
 let modQuizAnswers  = {};      // questionId -> text answer
+let modQuizMap     = {};   // moduleId -> quiz[] (populated during renderModules)
+let myModAttempts  = {};   // quizId -> attempt (populated during renderModules)
 
 window.courseData = null;
 
@@ -74,6 +76,21 @@ function isDone(modId) {
 }
 
 // ── Mark complete UI ──────────────────────────────────────────
+// function updateMarkBtn(modId) {
+//   if (!isEnrolled) {
+//     $('mark-done-btn').classList.add('hidden');
+//     $('already-done-tag').classList.add('hidden');
+//     return;
+//   }
+//   const done = isDone(modId);
+//   $('mark-done-btn').classList.toggle('hidden', done);
+//   $('mark-done-btn').textContent = 'Mark as Complete';
+//   $('mark-done-btn').disabled    = false;
+//   const tag = $('already-done-tag');
+//   if (done) { tag.classList.remove('hidden'); tag.style.display = 'inline-flex'; }
+//   else       { tag.classList.add('hidden');    tag.style.display = 'none'; }
+// }
+
 function updateMarkBtn(modId) {
   if (!isEnrolled) {
     $('mark-done-btn').classList.add('hidden');
@@ -81,12 +98,48 @@ function updateMarkBtn(modId) {
     return;
   }
   const done = isDone(modId);
-  $('mark-done-btn').classList.toggle('hidden', done);
-  $('mark-done-btn').textContent = 'Mark as Complete';
-  $('mark-done-btn').disabled    = false;
-  const tag = $('already-done-tag');
-  if (done) { tag.classList.remove('hidden'); tag.style.display = 'inline-flex'; }
-  else       { tag.classList.add('hidden');    tag.style.display = 'none'; }
+  const tag  = $('already-done-tag');
+  if (done) {
+    $('mark-done-btn').classList.add('hidden');
+    tag.classList.remove('hidden'); tag.style.display = 'inline-flex';
+    return;
+  }
+  tag.classList.add('hidden'); tag.style.display = 'none';
+
+  // Check if module is ready to be marked complete:
+  // all lessons watched + all module quizzes submitted
+  const mod      = courseData?.modules?.find(m => m._id === modId);
+  const quizzes  = modQuizMap[modId] || [];
+  const hasLessons  = mod?.lessons?.length > 0;
+  const hasQuizzes  = quizzes.length > 0;
+
+  // If module has lessons, only show mark-complete when viewing the last lesson
+  // or when the module video itself is active (no lessons)
+  const viewingModDirectly = activeMod?._id === modId && !activeLesson;
+  const viewingLastLesson  = activeMod?._id === modId && activeLesson &&
+    mod?.lessons && activeLesson._id === mod.lessons[mod.lessons.length - 1]?._id;
+
+  if (hasLessons && !viewingLastLesson && !viewingModDirectly) {
+    // User is watching a non-last lesson — hide the button
+    $('mark-done-btn').classList.add('hidden');
+    return;
+  }
+
+  // If module has quizzes, all must be submitted before marking complete
+  if (hasQuizzes) {
+    const allQuizzesSubmitted = quizzes.every(q => !!myModAttempts[q._id]);
+    if (!allQuizzesSubmitted) {
+      $('mark-done-btn').classList.add('hidden');
+      // Show a hint message instead
+      const hint = document.getElementById('mark-done-hint');
+      if (hint) { hint.textContent = '📝 Complete all module quizzes to unlock this button'; hint.classList.remove('hidden'); }
+      return;
+    }
+  }
+
+  const hint = document.getElementById('mark-done-hint');
+  if (hint) hint.classList.add('hidden');
+  $('mark-done-btn').classList.remove('hidden');
 }
 
 // ── Play a module / lesson ────────────────────────────────────
@@ -126,7 +179,7 @@ async function renderModules() {
   if (!totalMods) { $('module-list').innerHTML = `<div class="text-center py-6 text-gray-400 text-sm">No content yet.</div>`; return; }
 
   // Fetch module quizzes for each module (if enrolled)
-  let modQuizMap = {}; // moduleId -> quiz[]
+  modQuizMap = {}; // moduleId -> quiz[]
   if (isEnrolled) {
     await Promise.all(mods.map(async (m) => {
       try {
@@ -137,7 +190,7 @@ async function renderModules() {
   }
 
   // Fetch user's text quiz submissions for this course
-  let myModAttempts = {}; // quizId -> attempt
+  myModAttempts = {}; // quizId -> attempt
   if (isEnrolled) {
     for (const mId of Object.keys(modQuizMap)) {
       for (const q of modQuizMap[mId]) {
