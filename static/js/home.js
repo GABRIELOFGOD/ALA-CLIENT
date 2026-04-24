@@ -19,7 +19,7 @@
 
     const levels  = { 0: 'Beginner', 1: 'Intermediate', 2: 'Advanced', 3: 'Expert' };
 
-    programContainer.innerHTML = courses.map((c, i) => {
+    programContainer.innerHTML = courses.slice(0, 3).map((c, i) => {
       const mods = c.modules?.length || 0;
       const level  = levels[Math.min(i, 3)];
       
