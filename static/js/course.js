@@ -449,6 +449,8 @@ $('mark-done-btn').addEventListener('click', async () => {
 
     // Reset button state BEFORE potentially switching module
     // so if user stays on same module it shows correct state
+    $('mark-done-btn').innerHTML = `<i class="fa fa-check mr-1.5"></i> Mark as Complete`;
+    $('mark-done-btn').disabled    = false;
     updateMarkBtn(modId);
 
     if (isLastMod && res.data.isCompleted) {
